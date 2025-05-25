@@ -1,0 +1,17 @@
+name: TidsCore
+main: net.tidsrejsen.Main
+version: 1.0-SNAPSHOT
+api-version: 1.8
+commands:
+  pvp:
+    description: Toggle PvP on/off
+  combattag:
+    description: Show combat status or toggle admin mode
+    aliases: [combatlog, cl]
+permissions:
+  pvp.admin:
+    description: Toggle PvP mode
+    default: op
+  combatlog.admin:
+    description: Toggle combatlog admin mode
+    default: op
