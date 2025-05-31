@@ -27,7 +27,7 @@ public class MovementListener implements Listener {
                 isRestricted(e.getBlockPlaced().getType())) {
             e.setCancelled(true);
             p.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    "&4&lPvP &8&l» &7Du kan ikke placere blok, når PvP er slukket."));
+                    "&4&lPvP &8&l» &7Du kan ikke placere blocks, når PvP er slukket."));
         }
     }
 

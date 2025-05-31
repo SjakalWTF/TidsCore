@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import static net.tidsrejsen.Main.*;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,7 +22,8 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
-        Main.getInstance().getCombatManager().setPvP(true);
+        if (!Main.getInstance().getCombatManager().isPvpEnabled()) {
+            Main.getInstance().getCombatManager().setPvP(true);
 
         boolean isFirst = firstJoin.putIfAbsent(p.getUniqueId(), true) == null;
 
@@ -92,8 +94,9 @@ public class JoinListener implements Listener {
 
         // Combat reset
         if (Main.getInstance().getCombatManager().getCombatTime(p.getUniqueId()) > 0) {
-            Main.getInstance().getCombatManager().clearCombatDataOnShutdown();
+            Main.getInstance().getCombatManager().clearCombatData(p.getUniqueId());
             ActionBarUtil.sendActionBar(p, "&a&lCOMBAT &8» &aDin combat er restart");
+            }
         }
     }
 }

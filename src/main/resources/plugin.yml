@@ -1,7 +1,7 @@
 name: TidsCore
 main: net.tidsrejsen.Main
 version: 1.0-SNAPSHOT
-api-version: 1.8
+api-version: 1.8.9
 commands:
   pvp:
     description: Toggle PvP on/off
